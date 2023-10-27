@@ -40,6 +40,7 @@ class DemandRegisterCreateView(DemandMixin, DemandEditMixin, AuthMixin, CreateVi
             self.user_auth()
             return JsonResponse({'success': True, 'redirect_url': reverse('student_dashboard:demand_list')})
         else:
+            print(form.errors)
             form_html = render_crispy_form(form)
             register_form_html = render_crispy_form(register_form)
             return JsonResponse({'success': False, 'form_html': form_html,
@@ -60,14 +61,6 @@ class DemandDistributionUpdateView(DemandDistributionMixin, DemandDistributionEd
             label = 'Новый отклик, от эксперта ' + str(instance.expert)
             create_action(instance.demand.student, label, instance)
             messages.success(request, "Вы успешно отправили сумму заказа" )
-            channel_layer = get_channel_layer()
-            data = {
-                'demand_distribution': instance.id,
-                'demand': instance.demand.id,
-                'count_expert': instance.demand.get_count_responsive_distributions(),
-                'type': 'notification'
-            }
-            group_manager = 'notification_%s' % instance.demand.student.id
             return JsonResponse({'success': True, 'redirect_url': reverse('expert_dashboard:new_task_list')})
         form_html = render_crispy_form(form)
         return JsonResponse({'success': False, 'form_html': form_html})
