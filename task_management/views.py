@@ -4,9 +4,6 @@ from django.views.generic.edit import CreateView, UpdateView
 
 from crispy_forms.utils import render_crispy_form
 
-from asgiref.sync import async_to_sync
-from channels.layers import get_channel_layer
-
 from actions.utils import create_action
 from accounts.forms import RegisterForm
 from accounts.views import AuthMixin
@@ -71,8 +68,6 @@ class DemandDistributionUpdateView(DemandDistributionMixin, DemandDistributionEd
                 'type': 'notification'
             }
             group_manager = 'notification_%s' % instance.demand.student.id
-            async_to_sync(channel_layer.group_send)(
-                group_manager, data)
             return JsonResponse({'success': True, 'redirect_url': reverse('expert_dashboard:new_task_list')})
         form_html = render_crispy_form(form)
         return JsonResponse({'success': False, 'form_html': form_html})
