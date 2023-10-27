@@ -1,0 +1,115 @@
+{% extends 'expert_dashboard/base.html' %}
+{% load static %}
+
+{% block content %}
+	<div class="card border rounded-1">
+
+		<!-- Card body START -->
+		<div class="card-body">
+
+			<!-- Search and select START -->
+			<div class="row g-3 align-items-center justify-content-between mb-4">
+				<!-- Search -->
+				<div class="col-md-4">
+					<h5>{{today}}</h5>
+				</div>
+				<div class="col-md-4">
+					<a href="{% url 'expert_dashboard:team_task_create' %}" class="btn btn-primary w-100">+ Добавить</a>
+				</div>
+				<div class="col-md-4">
+					{% if rating_exists %}
+						<a  class="open-universal-modal btn btn-info w-100" >
+							День завершен
+						</a>
+
+					{% else %}
+						<a  class="open-universal-modal btn btn-success w-100" data-modal-url="{% url 'expert_dashboard:team_task_employee_day_rating' %}"
+							data-modal-title = "Завершить день">
+							Завершить день
+						</a>
+					{% endif %}
+				</div>
+			</div>
+			<!-- Search and select END -->
+
+			<div class="row">
+				{% for task in tasks %}
+					<div class="col-md-12 mb-3">
+						<div class="card border rounded-1">
+							<div class="card-body">
+								<div class="d-flex justify-content-between mb-2">
+									<div class="d-sm-flex align-items-center">
+										<!-- Info -->
+										<div class="ms-0 mt-2 mt-sm-0">
+											<b>Назначен кем:</b> {{task.send_by}} <br>
+											<b >Описание работы:</b> {{task.description}} <br>
+											{% if task.comment %}
+
+												<b>Комментарий:</b> {{ task.comment }} <br>
+											{% endif %}
+											<b>Статус:</b> <a href="#" class="badge
+												{% if task.status == 1 %}
+													text-bg-danger
+												{% elif task.status == 2 %}
+													text-bg-success
+												{% elif task.status == 3 %}
+													text-bg-warning
+												{% endif %}
+												 mb-2 mb-sm-0
+											">{{task.get_status_display}}</a>
+
+										</div>
+									</div>
+									<div>
+										<div class="nav-item dropdown nav-item-dropdown-icon">
+											<a class="nav-link show" href="#" id="advanceMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+												<i class="fas fa-ellipsis-h"></i>
+											</a>
+											<ul class="dropdown-menu dropdown-menu-end min-w-auto" data-bs-popper="static">
+												<li>
+													<a href="{% url 'expert_dashboard:team_task_update' pk=task.id %}" class="dropdown-item open-universal-modal">
+														<i class="text-warning fa-fw bi bi-pencil-square  fa-fw me-2"></i>Редактировать
+													</a>
+												</li>
+												<li> <hr class="dropdown-divider"></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			{% if tasks %}
+				<div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
+				<!-- Content -->
+					<p class="mb-0 text-center text-sm-start">Страница {{ page_obj.number }} из  {{ page_obj.paginator.num_pages }}.</p>
+					<!-- Pagination -->
+					<nav class="d-flex justify-content-center mb-0" aria-label="navigation">
+						<ul class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
+							{% if page_obj.has_previous %}
+								<li class="page-item mb-0">
+									<a class="page-link" href="?page=1"><i class="fas fa-angle-left"></i></a>
+								</li>
+								<li class="page-item mb-0">
+									<a class="page-link" href="?page={{ page_obj.previous_page_number }}">Предыдущий</a>
+								</li>
+							{% endif %}
+							{% if page_obj.has_next %}
+								<li class="page-item mb-0">
+									<a class="page-link" href="?page={{ page_obj.next_page_number }}">Cледующий</a>
+								</li>
+								<li class="page-item mb-0">
+									<a class="page-link" href="?page={{ page_obj.paginator.num_pages }}"><i class="fas fa-angle-right"></i></a>
+								</li>
+							{% endif %}
+						</ul>
+					</nav>
+				</div>
+			{% endif %}
+		</div>
+
+	</div>
+
+{% endblock %}

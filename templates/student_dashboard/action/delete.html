@@ -1,0 +1,10 @@
+<form id="form-universal-modal" class="row g-4" action="{% url 'student_dashboard:action_delete' %}" method="POST">
+     {% csrf_token %}
+    <div class="modal-body">
+        <p class="mb-0 color-red"> Сіз жойғыңыз келетініне сенімдісіз бе? </p>
+    </div>
+    <div class="modal-footer">
+        <input type="submit" class="btn btn-danger btn-sm" value="Жою">
+        <a href="" class="btn btn-secondary btn-sm">Бас тарту</a>
+    </div>
+</form>

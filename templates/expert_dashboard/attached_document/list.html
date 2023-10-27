@@ -1,0 +1,7 @@
+{% load static %}
+
+{% for document in documents %}
+    <a href="{{document.file.url}}" download>Без названия (скачать)</a> <br>
+{% empty %}
+	Нет прикрепленных документов!
+{% endfor %}

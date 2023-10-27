@@ -1,0 +1,47 @@
+{% extends 'student_dashboard/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="card border rounded-1">
+	<!-- Card header START -->
+	<div class="card-header bg-transparent border-bottom">
+		<h5 class="mb-0"> Доступный баланс</h5>
+	</div>
+	<!-- Card header END -->
+
+	<!-- Card body START -->
+	<div class="card-body">
+		<div class="row">
+			<div class="col-12 d-sm-flex justify-content-between align-items-center">
+				<div class="p-4 bg-primary bg-opacity-10 rounded-3">
+					<h6>Sales this month</h6>
+					<h2 class="mb-0 fs-1 text-primary">$899.95</h2>
+				</div>
+				<a href="instructor-create-course.html" class="btn btn-sm btn-primary mb-0">Вывести средства</a>
+			</div>
+			<div class="col-md-12 mt-3">
+				<div class="grid" id="paymentGrid">
+				    <table class="table table-bordered">
+				        <thead>
+				            <tr>
+				                <th class="text-center">Тип транзакции</th>
+				                <th class="text-center">Сумма</th>
+				                <th class="text-center">Дата</th>
+				            </tr>
+				        </thead>
+				        <tbody>
+				            
+				            <tr>
+				                <td colspan="3" class="text-center">Нет данных</td>
+				            </tr>
+				            
+				        </tbody>
+				    </table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Card body START -->
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'manager_dashboard/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form action="{{ request.path }}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div id="form-register-content">
+    	<div class="row">
+    		<div class="col-md-6">
+    			{{ form.email|as_crispy_field }}
+    		</div>
+    		<div class="col-md-6">
+    			{{ form.password1|as_crispy_field }}
+    		</div>
+    	</div>
+    </div>
+    <input type="hidden" name="role" id="id_role" value="1">
+    <div class="text-center">
+    	<div class="row">
+    		<div class="col-md-4 col-sm-12 m-auto">
+    			<input type="submit" class="text-black w-100 bg-warning  btn" value="Сохранить">
+    		</div>
+    	</div>
+    </div>
+</form>
+{% endblock %}

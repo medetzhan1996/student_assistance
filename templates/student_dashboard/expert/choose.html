@@ -1,0 +1,26 @@
+{% load widget_tweaks %}
+Сіздің тапсырмаңыздың түрі:{{demand_distributions.demand.type_task}}<br>
+Сіздің пәніңіз:
+{{demand_distributions.demand.subject}}<br>
+Бұл тапсырыстың мерзімі:
+{{demand_distributions.demand.deadline}}<br>
+Сіздің тапсырысыңыз тұрады:
+{{demand_distributions.price}}тг<br>
+Алдын ала төлем жасалды:
+{{demand_distributions.prepayment}}тг<br>
+Сіздің сарапшы:
+{{demand_distributions.expert.first_name}} {{demand_distributions.expert.last_name}} <br>
+
+<form class="row g-4" action="{{ request.path }}" method="POST" id="form-universal-modal">
+     {% csrf_token %}
+    <div class="modal-body">
+        <p class="mb-0 color-red"> Телефон нөміріңізді қалдырыңыз. Біздің менеджерлер жақын арада сізбен байланысады</p>
+        {{ form.phone_number|add_class:"form-control"|attr:"placeholder:+7 (___) ___-__-__"|attr:"id:id_phone_number" }}
+        {{ form.status.as_hidden }}
+        {{ form.is_expert_selected.as_hidden }}
+    </div>
+    <div class="modal-footer">
+        <input type="submit" class="btn btn-danger btn-sm" value="Қалдыру">
+        <a href="" class="btn btn-secondary btn-sm">Жоқ</a>
+    </div>
+</form>

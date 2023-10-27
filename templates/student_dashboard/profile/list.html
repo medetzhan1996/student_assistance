@@ -1,0 +1,63 @@
+{% extends 'student_dashboard/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row gutters-sm">
+    <div class="col-md-4 mb-3">
+      <div class="card border rounded-1">
+        <div class="card-body">
+          <div class="d-flex flex-column align-items-center text-center">
+            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+            <!-- <a href="{% url 'student_dashboard:student_profile_edit' %}">изменить профиль</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card mb-3 border rounded-1">
+        <div class="card-body">
+<!--          <div class="row">-->
+<!--            <div class="col-sm-3">-->
+<!--              <h6 class="mb-0">ФИО</h6>-->
+<!--            </div>-->
+<!--            <div class="col-sm-9 text-secondary">-->
+<!--              {{request.user.first_name}} {{request.user.last_name}}-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <hr>-->
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Электрондық мекен-жайы:</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{request.user.email}}
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Рөлі</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {% if request.user.role == 2 %}
+              Сарапшы
+              {% elif request.user.role == 1 %}
+              Студент
+              {% endif %}
+            </div>
+          </div>
+<!--          <hr>-->
+<!--          <div class="row">-->
+<!--            <div class="col-sm-3">-->
+<!--              <h6 class="mb-0">Логин</h6>-->
+<!--            </div>-->
+<!--            <div class="col-sm-9 text-secondary">-->
+<!--              {{request.user.username}}-->
+<!--            </div>-->
+<!--          </div>-->
+          
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,405 @@
+{% load chat_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	{% load i18n %}
+	<title>Студент</title>
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Eduport- LMS, Education and Course Theme">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap">
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/all.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/tiny-slider/tiny-slider.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/glightbox/css/glightbox.css' %}">
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+</head>
+
+<body>
+<header class="navbar-light navbar-sticky">
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-xl navbar-h-60">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand navbar-brand-exspert" href="{% url 'main:MainView' %}">
+				<img class="light-mode-item navbar-brand-item" src="{% static 'assets/images/iStudent.svg' %}" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="{% static 'assets/images/iStudent.png' %}" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Responsive navbar toggler -->
+			<button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+				<i class="fas fa-sliders-h"></i>
+			</button>
+			<!-- Right header content START -->
+			<!-- Add to cart -->
+			<div class="ms-xl-auto">
+				<div class="ms-xl-auto">
+					<ul class="navbar-nav flex-row align-items-center">
+						<!-- <li class="nav-item ms-2 ms-md-3 Language dropdown">
+							<a class="nav-link dropdown-toggle" href="index-2.html#" id="dropdownLanguage" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe me-2"></i>Язык</a>
+							<div class="dropdown-menu mt-2 min-w-auto shadow" aria-labelledby="dropdownLanguage" style="">
+								<a class="dropdown-item me-4" href="index-2.html#"><img class="fa-fw me-2" src="assets/images/flags/uk.svg" alt="">English</a>
+								<a class="dropdown-item me-4" href="index-2.html#"><img class="fa-fw me-2" src="assets/images/flags/sp.svg" alt="">Español</a>
+								<a class="dropdown-item me-4" href="index-2.html#"><img class="fa-fw me-2" src="assets/images/flags/fr.svg" alt="">Français</a>
+								<a class="dropdown-item me-4" href="index-2.html#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg" alt="">Deutsch</a>
+							</div>
+						</li> -->
+						<li class="nav-item ms-2 dropdown ">
+							<!-- Cart button -->
+							<a class="btn btn-light btn-round mb-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+								<i class="bi bi-chat-dots fa-fw"></i>
+							</a>
+							<!-- badge -->
+							<div id="message-count-div">
+								<span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-dark mt-xl-2 ms-n1" id="messages-count">{{message_count}}</span>
+							</div>
+							<!-- Cart dropdown menu START -->
+							<div class="dropdown-menu dropdown-animation dropdown-menu-end dropdown-menu-size-md p-0 shadow-lg border-0">
+								<div class="card bg-transparent">
+									<div class="card-header bg-transparent border-bottom py-4">
+										<h5 class="m-0"> Хабарламалар тізімі</h5>
+										<a class="small {% if not messages_list %} d-none {% endif %} open-universal-modal"
+										   data-modal-url="{% url 'chat:message_delete' %}"
+										   data-modal-title="Удалить все уведомление" href="#">Барлығын тазалаңыз
+										</a>
+									</div>
+									<div class="card-body p-0" id="chat-notification-list">
+									{% if messages_list %}
+									{% for message in messages_list %}
+										<!-- Cart item START -->
+										{% get_merge_url message.content_object.demand.id message.content_object.id as room %}
+										<a href="{% url 'student_dashboard:message_list' room=room %}">
+										<div class="row p-3 g-2" id="message-div-{{message.id}}">
+											<!-- Image -->
+
+											<div class="col-12">
+												<!-- Title -->
+												<div class="d-flex justify-content-between">
+													<div>
+														<h6 class="m-0">{{message.from_user}}</h6>
+														<p>{{message.text}}</p>
+													</div>
+													<a href="#" class="small text-primary-hover" >
+														<i id="delete-one-message" class="bi bi-x-lg"
+														   data-url="{% url 'chat:message_delete' message.id %}"
+														data-message-div="message-div-{{message.id}}"></i>
+													</a>
+												</div>
+												
+											</div>
+										</div>
+										</a>
+									{% endfor %}
+									{% else %}
+										<div class="row p-3 g-2" id="no-message-div">
+											<!-- Image -->
+
+											<div class="col-12">
+												<!-- Title -->
+												<div class="d-flex justify-content-between">
+													<div>
+														<p>Әзірге хабарламалар жоқ</p>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									{% endif %}
+										<!-- Cart item END -->
+
+										<!-- Divider -->
+										<hr class="m-0">
+									</div>
+								</div>
+							</div>
+							<!-- Cart dropdown menu END -->
+						</li>
+						<!-- Notification dropdown START -->
+						<li class="nav-item ms-2 ms-md-3 dropdown">
+							<!-- Notification button -->
+							<a class="btn btn-light btn-round mb-0" href="#" role="button"
+							   data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+								<i class="bi bi-bell fa-fw"></i>
+							</a>
+							<!-- Notification dote -->
+							<div id="red-animation">
+							<span class="notif-badge animation-blink {% if not actions %} d-none {% endif %}"></span>
+							</div>
+
+							<!-- Notification dropdown menu START -->
+							<div class="dropdown-menu dropdown-animation dropdown-menu-end dropdown-menu-size-md p-0 shadow-lg border-0">
+								<div class="card bg-transparent">
+									<div class="card-header bg-transparent border-bottom py-4 d-flex justify-content-between align-items-center" >
+										<h6 class="m-0" id="notification-count">
+											Хабарламалар(Ескертпе)
+											<span class="badge bg-danger bg-opacity-10 text-danger ms-2
+												{% if not actions %} d-none {% endif %}">
+												{{ actions.count }} жаңа
+											</span>
+										</h6>
+										<div id="cleare-notification-button">
+											<a class="small {% if not actions %} d-none {% endif %} open-universal-modal" data-modal-url="{% url 'student_dashboard:action_delete' %}" data-modal-title="Удалить все уведомление" href="#">Барлығын тазалау</a>
+										</div>
+									</div>
+									<div class="card-body p-0">
+										<ul class="list-group list-unstyled list-group-flush" id="action-list">
+											<!-- Notif item -->
+											{% for action in actions %}
+												<li>
+													<a href="#" class="list-group-item-action border-0 border-bottom d-flex p-3">
+														<div>
+															<p class="text-body small m-0">
+																{{ action.verb }}
+															</p>
+														</div>
+													</a>
+												</li>
+											{% empty %}
+												<li>
+													<a href="#" class="list-group-item-action border-0 border-bottom d-flex p-3" id="not-notification">
+														<div>
+															<p class="text-body small m-0">Хабарлама жоқ</p>
+														</div>
+													</a>
+												</li>
+											{% endfor %}
+										</ul>
+									</div>
+									
+								</div>
+							</div>
+							<!-- Notification dropdown menu END -->
+						</li>
+						<!-- Notification dropdown END -->
+
+						<!-- Profile dropdown START -->
+						<li class="nav-item ms-2 ms-md-3 dropdown">
+							<!-- Avatar -->
+							<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+								<img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/01.jpg' %}" alt="avatar">
+							</a>
+
+							<!-- Profile dropdown START -->
+							<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+								<!-- Profile info -->
+								<li class="px-3">
+									<div class="d-flex align-items-center">
+										<!-- Avatar -->
+										<div class="avatar me-3 mb-3">
+											<img class="avatar-img rounded-circle shadow" src="{% static 'assets/images/avatar/01.jpg' %}" alt="avatar">
+										</div>
+										<div>
+											<a class="h6 mt-2 mt-sm-0" href="#">{{ request.user.username }}</a>
+											<p class="small m-0">Студент</p>
+										</div>
+									</div>
+								</li>
+<!--                				<li> <hr class="dropdown-divider"></li>-->
+								<!-- Links -->
+<!--								<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>-->
+								<li><a class="dropdown-item bg-danger-soft-hover" href="{% url 'logout' %}"><i class="bi bi-power fa-fw me-2"></i>Шығу</a></li>
+<!--								<li> <hr class="dropdown-divider"></li>-->
+							</ul>
+							<!-- Profile dropdown END -->
+						</li>
+						<!-- Profile dropdown END -->
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
+<div id="sticky-space" style="height: 0px;" class=""></div>
+<div class="main-ddd">
+<section class="pt-4">
+	<div class="container">
+		<div class="row">
+
+			<!-- Left sidebar START -->
+			<div class="col-xl-3">
+				<!-- Responsive offcanvas body START -->
+				<div class="offcanvas-xl offcanvas-end" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+					<!-- Offcanvas header -->
+					<div class="offcanvas-header bg-light">
+						<img class="light-mode-item navbar-brand-item" src="{% static 'assets/images/iStudent.png' %}" alt="logo" width="150">
+						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasSidebar" aria-label="Close"></button>
+					</div>
+					<!-- Offcanvas body -->
+					<div class="offcanvas-body p-3 p-xl-0">
+						<div class="border list-group-item-white rounded-1 pb-0 p-3 w-100">
+							<!-- Dashboard menu -->
+							<div class="list-group list-group list-group-borderless">
+								{% with request.resolver_match.app_names.0|add:':'|add:request.resolver_match.url_name as url_name %}
+									<a class="list-group-item {% if url_name == 'student_dashboard:student_profile' %}active{% endif %}"
+									   href="{% url 'student_dashboard:student_profile' %}">
+										<i class="bi bi-ui-checks-grid fa-fw me-2"></i>
+										Профиль
+									</a>
+									<a class="list-group-item {% if url_name == 'student_dashboard:demand_create' %}active{% endif %}"
+									   href="{% url 'student_dashboard:demand_create' %}">
+										<i class="bi bi-pencil-square  fa-fw me-2"></i>
+										Тапсырма қосу
+									</a>
+									<a class="list-group-item {% if url_name == 'student_dashboard:demand_list' %}active{% endif %}"
+									   href="{% url 'student_dashboard:demand_list' %}">
+										<i class="bi bi-basket fa-fw me-2"></i>
+										Менің тапсырмаларым
+									</a>
+
+									<a class="list-group-item" href="{% url 'student_dashboard:archive_list' %}">
+										<i class="bi bi-graph-up fa-fw me-2"></i>Архив</a>
+<!--									<a class="list-group-item {% if url_name == 'student_dashboard:my_balance_list' %}active{% endif %}"-->
+<!--									   href="{% url 'student_dashboard:my_balance_list' %}">-->
+<!--										<i class="bi bi-wallet2 fa-fw me-2"></i>-->
+<!--										Баланс-->
+<!--									</a>-->
+<!--									<a class="list-group-item"-->
+<!--									   href="{% url 'student_dashboard:notification_list' %}">-->
+<!--										<i class="bi bi-chat fa-fw me-2"></i>-->
+<!--										Уведомление-->
+<!--									</a>-->
+<!--									<a class="list-group-item" href="{% url 'student_dashboard:finished_task_list' %}">-->
+<!--										<i class="fa-solid fa-file"></i>-->
+<!--										Готовыe задание-->
+<!--									</a>-->
+									<a class="list-group-item text-danger bg-danger-soft-hover" href="{% url 'logout' %}">
+										<i class="fas fa-sign-out-alt fa-fw me-2"></i>
+										Шығу
+									</a>
+								{% endwith %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Responsive offcanvas body END -->
+			</div>
+			<!-- Left sidebar END -->
+
+			<!-- Main content START -->
+			<div class="col-xl-9 col-md-9">
+				{% block content %}{% endblock %}
+				{% block modal %}{% endblock %}
+				{% include 'widget/modal.html' %}
+			</div>
+			<!-- Main content END -->
+		</div><!-- Row END -->
+	</div>
+</section>
+</div>
+</body>
+
+<!-- Back to top -->
+<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
+<!-- Bootstrap JS -->
+<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Vendors -->
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.js' %}"></script>
+<script src="{% static 'assets/vendor/purecounterjs/dist/purecounter_vanilla.js' %}"></script>
+<!-- Template Functions -->
+<script src="{% static 'assets/js/functions.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
+<script src="https://unpkg.com/htmx.org@1.6.0"></script>
+<script src="{% static 'assets/js/js.cookie.min.js' %}"></script>
+<script src="{% static 'assets/js/ajax_custom.js' %}"></script>
+<script src="{% static 'assets/js/chat.js' %}"></script>
+<script src="{% static 'assets/js/form_set.js' %}"></script>
+<script src="{% static 'assets/js/selectize.js' %}"></script>
+<script src="{% static 'assets/vendor/mask-js/jquery.maskedinput.min.js' %}"></script>
+<script type="text/javascript">
+	var csrftoken = Cookies.get('csrftoken');
+	function csrfSafeMethod(method) {
+		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+	}
+	$.ajaxSetup({
+		beforeSend: function(xhr, settings) {
+			if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+				xhr.setRequestHeader("X-CSRFToken", csrftoken);
+			}
+		}
+	});
+
+	$(document).ready(function() {
+		const url = 'ws://' + window.location.host + '/ws/notification/room/' + '{{request.user.id}}/'
+		const chatSocket = new WebSocket(url)
+
+		chatSocket.onmessage = function(event) {
+		    output_count_expert = ''
+			const data = JSON.parse(event.data)
+			if(data.type == 'notification'){
+				var demand_id = data.demand
+				var demand_distribution = data.demand_distribution
+				var count_expert_ = data.count_expert
+				var url = "{% url 'student_dashboard:demand_detail' %}"
+				$.ajax({
+    	            url: url,
+    	            type: 'GET',
+    	            data: {
+    	                demand_id: demand_id,
+    	                demand_distribution: demand_distribution
+    	            },
+    	            success: function(res) {
+    	            	var demand_id_ = '#tab-distribution-' + demand_id
+    	            	$(demand_id_).append(res)
+    	            	var count_expert = '#count-expert-' + demand_id
+    	            	output_count_expert += 'Консультанты <span class="badge text-bg-danger">' +  count_expert_ + '</span>'
+    	            	$(count_expert).html(output_count_expert)
+    	            	$('#expert-not-exist').addClass( "d-none" )
+
+    	            }
+    	        })
+			}
+
+		if(data.type == 'action_notification'){
+			notification_count = ''
+			notification_count += 'Уведомления <span class="badge bg-danger bg-opacity-10 text-danger ms-2">' + data.actions_count + ' новый' + '</span>'
+			$('#notification-count').html(notification_count)
+			action_output = ''
+			action_output += '<li>' + '<a href="#" class="list-group-item-action border-0 border-bottom d-flex p-3">' +
+							'<div>' + '<p class="text-body small m-0">' + data.verb + '</p>' + '</div>' + '</a>' +'</li>'
+			cleare_notification_button = '<a class="small open-universal-modal" data-modal-url="{% url 'student_dashboard:action_delete' %}" data-modal-title="Удалить все уведомление" href="#">' + 'Очистить все</a>'
+			$('#action-list').append(action_output)
+			$('#cleare-notification-button').html(cleare_notification_button)
+			$('#red-animation').html('<span class="notif-badge animation-blink">' + '</span>')
+			$('#not-notification').addClass('d-none')
+			}
+		if(data.type == 'chat_notification'){
+			action_output = ''
+			var message_url = data.demand_id + '_' + data.demand_distribution_id
+			action_output += '<a href="/student/dashboard/' + message_url + '/message/list">' + '<div class="row p-3 g-2">' + '<div class="col-12">' +
+	                         '<div class="d-flex justify-content-between">' + '<div>' +
+		                     '<h6 class="m-0">' + data.user_from + '</h6>' + '<p>' +
+			                 data.text + '</p>' + '</div>' + '<a href="#" class="small text-primary-hover" >жаңа' + '</a>' + '</div>' + '</div>' + '</div>' + '</a>'
+            message_count = ''
+			message_count += '<span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-dark mt-xl-2 ms-n1">' + data.message_count +
+							 '<span class="visually-hidden">' + 'unread messages' + '</span>' + '</span>'
+			$('#chat-notification-list').prepend(action_output)
+			$('#message-count-div').append(message_count)
+			$('#no-message-div').addClass('d-none')
+			}
+		}
+
+		chatSocket.onclose = function(event) {
+			console.error('Chat socket closed unexpectedly')
+		}
+		{% block domready %}{% endblock %}
+	})
+
+</script>
+</html>

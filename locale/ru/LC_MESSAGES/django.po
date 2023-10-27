@@ -1,0 +1,470 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-02 15:59+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\accounts\models.py:20
+msgid "email address"
+msgstr ""
+
+#: .\templates\accounts\login.html:107
+msgid "Войдите в "
+msgstr ""
+
+#: .\templates\accounts\login.html:118
+msgid "Запомните меня"
+msgstr ""
+
+#: .\templates\accounts\login.html:122
+msgid "Забыл пароль?"
+msgstr ""
+
+#: .\templates\accounts\login.html:129
+msgid "Авторизоваться"
+msgstr ""
+
+#: .\templates\accounts\login.html:140
+msgid "У вас нет аккаунта? "
+msgstr ""
+
+#: .\templates\accounts\login.html:140
+msgid "Зарегистрироваться"
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:112
+msgid "Что даёт студентам сайт"
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:122
+#: .\templates\main\index.html:1225
+msgid "Быстрый поиск помощника"
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:123
+#: .\templates\main\index.html:1226
+msgid "За 59 секунд система разошлёт задание экспертам, а они предложат цены."
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:132
+#: .\templates\main\index.html:1235
+msgid "Общение с экспертом напрямую"
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:133
+#: .\templates\main\index.html:1236
+msgid ""
+"Эксперты предлагают цены, а вы выбираете подходящего (по рейтингу, отзывам, "
+"стоимости)."
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:142
+#: .\templates\main\index.html:1245
+msgid "Цены в 2-3 раза ниже, чем у посредников"
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:143
+#: .\templates\main\index.html:1246
+msgid "Общаясь с экспертом напрямую, экономите не только время, но и деньги."
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:152
+msgid "Строгий отбор экспертов"
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:153
+msgid ""
+"Наши эксперты прошли проверку временем, сложностью и количеством заданий."
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:172
+msgid "Зарегистрируйтесь сейчас"
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:174
+msgid "После регистрации вы получите доступ к сайту"
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:180
+msgid "Зарегистрировать"
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:184
+msgid "У вас уже есть аккаунт?"
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:184
+msgid "Войти здесь"
+msgstr ""
+
+#: .\templates\main\index.html:165
+msgid "Обратный звонок"
+msgstr ""
+
+#: .\templates\main\index.html:168
+msgid "Главная страница"
+msgstr ""
+
+#: .\templates\main\index.html:171
+msgid "Наши услуги"
+msgstr ""
+
+#: .\templates\main\index.html:174
+msgid "Отзывы"
+msgstr ""
+
+#: .\templates\main\index.html:177 .\templates\main\index.html:1192
+msgid "О проекте"
+msgstr ""
+
+#: .\templates\main\index.html:180
+msgid "ЯЗЫК"
+msgstr ""
+
+#: .\templates\main\index.html:344
+msgid "онлайн-сервис помощи студентам"
+msgstr ""
+
+#: .\templates\main\index.html:348
+msgid "Здесь эксперты помогают и консультируют по учёбе без посредников"
+msgstr ""
+
+#: .\templates\main\index.html:360
+msgid "Перейти в личный кабинет студента "
+msgstr ""
+
+#: .\templates\main\index.html:365
+msgid "Перейти в личный кабинет эксперта"
+msgstr ""
+
+#: .\templates\main\index.html:372 .\templates\main\index.html:1377
+msgid "Разместить задание"
+msgstr ""
+
+#: .\templates\main\index.html:375 .\templates\main\index.html:1395
+msgid "Стать экспертом"
+msgstr ""
+
+#: .\templates\main\index.html:426
+msgid "Эксперт"
+msgstr ""
+
+#: .\templates\main\index.html:439
+msgid " Cтудента"
+msgstr ""
+
+#: .\templates\main\index.html:452
+msgid " Заданий и консультаций"
+msgstr ""
+
+#: .\templates\main\index.html:518
+msgid "Разместите задание, а мы подберём эксперта"
+msgstr ""
+
+#: .\templates\main\index.html:519
+msgid ""
+"Сайт бесплатно разошлёт задание экспертам.А эксперты предложат цены. Это "
+"удобнее, чем искать кого-то в Интернете"
+msgstr ""
+
+#: .\templates\main\index.html:529
+msgid "Тысячи отзывов о нашей работе"
+msgstr ""
+
+#: .\templates\main\index.html:537
+msgid "553 969 оценок среднее 4,9 из 5"
+msgstr ""
+
+#: .\templates\main\index.html:548
+msgid "Отклик экспертов с первых мину"
+msgstr ""
+
+#: .\templates\main\index.html:550
+msgid ""
+"С нами работают более 15 000 проверенных экспертов с высшим образованием. Вы "
+"можете выбрать исполнителя уже через 15 минут после публикации заказа. Срок "
+"исполнения — от 1 часа"
+msgstr ""
+
+#: .\templates\main\index.html:561
+msgid "Цены ниже в 2-3 раза"
+msgstr ""
+
+#: .\templates\main\index.html:563
+msgid "Вы работаете с экспертами напрямую, поэтому цены ниже, чем в агентствах"
+msgstr ""
+
+#: .\templates\main\index.html:574
+msgid "Доработки и консультации– бесплатны"
+msgstr ""
+
+#: .\templates\main\index.html:576
+msgid ""
+"Доработки и консультации в рамках задания бесплатны и выполняются в "
+"максимально короткие сроки"
+msgstr ""
+
+#: .\templates\main\index.html:587 .\templates\main\index.html:1062
+msgid "Гарантия возврата денег"
+msgstr ""
+
+#: .\templates\main\index.html:589
+#, python-format
+msgid "Если эксперт не справится — мы вернем 100%% стоимости"
+msgstr ""
+
+#: .\templates\main\index.html:671
+msgid "Цены ниже – качество выше!"
+msgstr ""
+
+#: .\templates\main\index.html:672
+msgid "Работайте с проверенными экспертами без посредников"
+msgstr ""
+
+#: .\templates\main\index.html:689
+msgid "Курсовая работа"
+msgstr ""
+
+#: .\templates\main\index.html:690 .\templates\main\index.html:709
+#: .\templates\main\index.html:728 .\templates\main\index.html:747
+#: .\templates\main\index.html:785
+msgid "Цена — от "
+msgstr ""
+
+#: .\templates\main\index.html:708
+msgid "Дипломная работа"
+msgstr ""
+
+#: .\templates\main\index.html:727
+msgid "Реферат"
+msgstr ""
+
+#: .\templates\main\index.html:746
+msgid "Контрольная работа "
+msgstr ""
+
+#: .\templates\main\index.html:765
+msgid "Домашнее задание "
+msgstr ""
+
+#: .\templates\main\index.html:766
+msgid "Цена — от  "
+msgstr ""
+
+#: .\templates\main\index.html:784
+msgid "Отчет по практике"
+msgstr ""
+
+#: .\templates\main\index.html:803
+msgid "Домашнее задание"
+msgstr ""
+
+#: .\templates\main\index.html:804 .\templates\main\index.html:823
+msgid "Цена — от"
+msgstr ""
+
+#: .\templates\main\index.html:822
+msgid "Статья"
+msgstr ""
+
+#: .\templates\main\index.html:889
+msgid "Как мы помагаем"
+msgstr ""
+
+#: .\templates\main\index.html:933
+msgid "Разместите заказ и получите предложения с ценами экспертов."
+msgstr ""
+
+#: .\templates\main\index.html:972
+msgid "Выберите эксперта по цене и отзывам"
+msgstr ""
+
+#: .\templates\main\index.html:1005
+msgid ""
+"Получите положительную оценку, оплатите работу и оставьте отзыв эксперту "
+msgstr ""
+
+#: .\templates\main\index.html:1025
+msgid "Наши гарантии"
+msgstr ""
+
+#: .\templates\main\index.html:1026
+msgid "Эксперт получил деньги за заказ, а работу не выполнил?Только не у нас!."
+msgstr ""
+
+#: .\templates\main\index.html:1036
+msgid "Гарантия качества"
+msgstr ""
+
+#: .\templates\main\index.html:1037
+#, python-format
+msgid "Мы гарантируем получение 100%% качественного результата"
+msgstr ""
+
+#: .\templates\main\index.html:1049
+msgid "Низкие цены"
+msgstr ""
+
+#: .\templates\main\index.html:1050
+msgid "Находите профессиональных консультантов, соответствующих вашему бюджету"
+msgstr ""
+
+#: .\templates\main\index.html:1063
+msgid ""
+"В случае, если что-то пойдет не так, мы гарантируем возврат полной "
+"уплаченной суммы"
+msgstr ""
+
+#: .\templates\main\index.html:1074
+msgid "Проверенные консультанты"
+msgstr ""
+
+#: .\templates\main\index.html:1075
+msgid ""
+"У нас работают только настоящие профессионалы, прошедшие проверку и "
+"тестирование"
+msgstr ""
+
+#: .\templates\main\index.html:1086
+msgid "Доработки и консультации"
+msgstr ""
+
+#: .\templates\main\index.html:1087
+msgid ""
+"Доработки и консультации бесплатны, и предоставляются в максимально короткие "
+"сроки"
+msgstr ""
+
+#: .\templates\main\index.html:1103
+msgid "Отзывы наших клиентов"
+msgstr ""
+
+#: .\templates\main\index.html:1173
+msgid "О портале"
+msgstr ""
+
+#: .\templates\main\index.html:1184
+msgid ""
+" – это безопасный онлайн-сервис помощи студентам. Здесь заказчики напрямую "
+"обращаются за помощью к экспертам, а сайт предоставляет гарантию на "
+"оказанные услуги."
+msgstr ""
+
+#: .\templates\main\index.html:1196 .\templates\main\index.html:1275
+msgid "Безопасная сделка"
+msgstr ""
+
+#: .\templates\main\index.html:1200 .\templates\main\index.html:1296
+msgid "Контакты"
+msgstr ""
+
+#: .\templates\main\index.html:1217
+msgid "Что даёт студентам сайт "
+msgstr ""
+
+#: .\templates\main\index.html:1255
+msgid "Гарантия возврата"
+msgstr ""
+
+#: .\templates\main\index.html:1256
+#, python-format
+msgid "Если эксперт не справится - вернём 100%% суммы."
+msgstr ""
+
+#: .\templates\main\index.html:1276
+msgid ""
+"это современный автоматизированный сервис. Он устроен так, что гарантирует "
+"полную безопасность сделок по заказам."
+msgstr ""
+
+#: .\templates\main\index.html:1277
+msgid "Схема работы сервиса:"
+msgstr ""
+
+#: .\templates\main\index.html:1279
+msgid "1) Заказчик размещает заказ. Система оповещает экспертов."
+msgstr ""
+
+#: .\templates\main\index.html:1280
+msgid ""
+"2) Эксперты предлагают цены за услуги для студентов.Заказчик может выбрать "
+"любого эксперта."
+msgstr ""
+
+#: .\templates\main\index.html:1281
+msgid ""
+"3) После того, как заказчик определится с выбором эксперта, он вносит "
+"предоплату."
+msgstr ""
+
+#: .\templates\main\index.html:1297
+msgid ""
+"Если вам необходима помощь или консультация по работе «Eduport», или вы "
+"хотите поделиться своими идеями, замечаниями, то смело пишите нам мы на "
+"связи 7 дней в неделю!"
+msgstr ""
+
+#: .\templates\main\index.html:1313
+msgid "Email"
+msgstr ""
+
+#: .\templates\main\index.html:1324
+msgid "Номер WhatsApp"
+msgstr ""
+
+#: .\templates\main\index.html:1335
+msgid "Телефон"
+msgstr ""
+
+#: .\templates\main\index.html:1346
+msgid "Веб-сайт"
+msgstr ""
+
+#: .\templates\main\index.html:1375
+msgid "Для заказчиков"
+msgstr ""
+
+#: .\templates\main\index.html:1376
+msgid ""
+"Теперь вы знаете про «Всё сдал!».Выбор за вами. Разместите задание и "
+"проверьте, как всё работает.Это быстро и бесплатно."
+msgstr ""
+
+#: .\templates\main\index.html:1393
+msgid "Для экспертов"
+msgstr ""
+
+#: .\templates\main\index.html:1394
+#, python-format
+msgid ""
+"Вы предлагаете цены, а мы выплачиваем 100%% вашего заработка.Никаких "
+"посредников. Оказывайте помощь студентам и зарабатывайте!"
+msgstr ""
+
+#: .\templates\main\index.html:1424
+msgid ""
+"безопасный онлайн-сервис с проверенными экспертами. Эксперты сайта Eduport "
+"проводят работу по подбору, обработке и структурированию материала по "
+"предложенной заказчиком теме. Результат данной работы не является готовым "
+"научным трудом, но может служить источником для его написания."
+msgstr ""
+
+#: .\templates\main\index.html:1450
+msgid "Все права защищены. "
+msgstr ""

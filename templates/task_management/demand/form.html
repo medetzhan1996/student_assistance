@@ -1,0 +1,11 @@
+<div class="row">
+    <form action="{{ request.path }}" method="POST" id="form-universal-modal" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div id="form-universal-modal-content">
+        	<div class="row">
+        		{% include 'task_management/demand/form_inner.html' %}
+        	</div>
+        </div>
+        <input class="btn btn-primary w-100 mt-2" type="submit" value="Отправить">
+    </form>
+</div>

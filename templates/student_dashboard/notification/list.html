@@ -1,0 +1,20 @@
+{% extends 'student_dashboard/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% for notification in notifications %}
+
+            {% if notification.target_ct.app_labeled_name == 'chat | message' %}
+                <a href="{% url 'student_dashboard:demand_list' %}">
+                    {{ notification.verb }}
+                    {{ notification.target.from_user }}
+                </a><br>
+            {% elif notification.target_ct.app_labeled_name == 'task_management | demand distribution' %}
+                <a href="{% url 'student_dashboard:demand_list' %}">
+                    {{ notification.verb }}
+                    {{ notification.target.expert }}
+                </a><br>
+            {% endif %}
+
+    {% endfor %}
+{% endblock %}

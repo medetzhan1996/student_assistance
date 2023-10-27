@@ -1,0 +1,15 @@
+{% load widget_tweaks %}
+<form class="" action="{% url 'main:call_back_form' %}" method="POST">
+	{% csrf_token %}
+	<div class="mb-3">
+		<label class="form-label">Сізбен байланысу үшін телефон нөміріңізді енгізіңіз</label>
+		{{ call_back_form.phone_number|add_class:"form-control phone_mask"|append_attr:"placeholder:Телефон нөміріңізді енгізіңіз" }}
+	</div>
+	<div class="mb-3">
+		<label class="form-label">Атыңызды енгізіңіз</label>
+		{{ call_back_form.first_name|add_class:"form-control"|append_attr:"placeholder:Есіміңіз" }}
+	</div>
+	<div class="d-sm-flex justify-content-end">
+		<button type="submit" class="btn btn-primary mb-0">Өтініш қалдыру</button>
+	</div>
+</form>

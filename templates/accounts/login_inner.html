@@ -1,0 +1,14 @@
+{% load crispy_forms_tags %}
+
+<form action="{{ request.path }}" method="POST" id="form-universal-modal">
+	{% csrf_token %}
+	<div id="form-universal-modal-content">
+		{{ form|crispy }}
+	</div>
+	<!-- Button -->
+	<div class="align-items-center mt-0">
+		<div class="d-grid">
+			<button class="btn btn-primary mb-0" type="submit">Авторизоваться</button>
+		</div>
+	</div>
+</form>

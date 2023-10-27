@@ -1,0 +1,23 @@
+{% extends 'student_dashboard/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="card border rounded-1">
+	<div class="card-header bg-transparent border-bottom">
+		<h5 class="mb-0">Тапсырманы қосу</h5>
+	</div>
+	<div class="card-body">
+		<form class="row g-4" action="" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			{% include 'task_management/demand/form_inner.html' %}
+			<input type="submit" value="Сақтау" class="btn btn-primary" id="new-task-submit">
+		</form>
+	</div>
+</div>
+{% endblock %}
+
+{% block domready %}
+	subject_search()
+{% endblock %}
+

@@ -1,0 +1,16 @@
+
+{% if request.user == message.from_user %}
+<li class="clearfix">
+    <div class="message other-message float-right">
+    	<p style="margin-bottom: -5px">{{ message.text }}</p>
+    	<small style="display: block;font-size: 10px;color: silver;">{{ message.created }}</small>
+    </div>
+</li>
+{% else %} 
+<li class="clearfix">
+    <div class="message my-message">
+    	<p style="margin-bottom: -5px">{{ message.text }}</p>
+    	<small style="display: block;font-size: 10px;color: silver;">{{ message.created }}</small>
+    </div>                                    
+</li> 
+{% endif %}

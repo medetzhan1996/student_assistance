@@ -1,0 +1,37 @@
+{% load static %}
+{% load chat_tags %}
+<div class="chat-header clearfix">
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
+                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+            </a>
+            <div class="chat-about">
+                {% get_username_expert room_split_1 as expert_username %}
+                <h6 class="m-b-0">{{expert_username}}</h6>
+                <small>Программист</small>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="chat-history" >
+    <ul class="m-b-0" id="chat-content">
+    	{% for message in messages %}
+		  {% include 'chat/message/detail.html' %}
+		{% endfor %}
+        
+    </ul>
+</div>
+<div class="chat-message clearfix">
+    <div class="input-group mb-0">
+        <input type="text" class="form-control"  id="chat-message-input" placeholder="Напиши что-нибудь">
+        <div class="input-group-prepend">
+        	{{ room_split_0|json_script:"room-split-1-id" }}
+			{{ room_split_1|json_script:"room-split-2-id" }}
+			{{ request.user.username|json_script:"request-user" }}
+			<button class="btn " type="submit" id="chat-message-submit" data-abc="true"> <i class="fa fa-paper-plane"></i></button>
+        </div>
+
+    </div>
+</div>

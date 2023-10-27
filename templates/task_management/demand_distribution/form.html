@@ -1,0 +1,10 @@
+<form action="{{ request.path }}" method="POST" id="form-universal-modal">
+    {% csrf_token %}
+    <div id="form-universal-modal-content">
+        {% include 'task_management/demand_distribution/form_inner.html' %}
+    </div>
+    <div class="d-flex justify-content-end">
+    	<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn btn-secondary">Отменить</button>
+      	<button type="submit" onclick="document.getElementById('id01').style.display='none'" class="deletebtn btn btn-primary ml-10">Сохранить</button>
+    </div>
+</form>

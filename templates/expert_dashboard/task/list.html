@@ -1,0 +1,70 @@
+{% load static %}
+
+<div class="col-md-12 mb-3">
+    <div class="card border rounded-1">
+        <div class="card-body">
+            <div class="d-flex justify-content-between mb-2">
+                <div class="d-sm-flex align-items-center">
+                    <!-- Info -->
+                    <div class="ms-0 mt-2 mt-sm-0">
+                        <h5 class="mb-0">{{demand_distribution.demand.student}} &nbsp
+                            <a href="#" class="open-universal-modal"
+                                data-modal-url="{% url 'chat:messages' demand_distribution=demand_distribution.id sent_to_user=demand_distribution.demand.student.id %}"
+                                data-modal-title = "ЧАТ">
+                                <img src="{% static 'assets/images/chat.png' %}">
+                                <!-- <span class="notif-badge animation-blink" style="right: unset;top: unset;"></span> -->
+                            </a>
+                        </h5>
+                        <!-- <a href="#" class="btn btn-link text-body p-0 mb-0 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Message" aria-label="Message">
+                        <i class="bi bi-envelope-fill"></i> Открыть чат
+                        </a>   -->
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- Badge and rating -->
+            <div class="d-sm-flex justify-content-sm-between align-items-center mb-2">
+                <!-- Badge -->
+                <div>
+                    <a href="#" class="badge text-bg-primary mb-2 mb-sm-0">{{demand_distribution.demand.type_task}}</a>
+                    <a href="#" class="badge text-bg-dark">{{demand_distribution.demand.subject}}</a>
+                    <span class="badge bg-danger bg-opacity-10 text-danger"><i class="far fa-calendar text-danger me-2"></i>Срок:16-10-2022  </span>
+                </div>
+                <div>
+                {% if demand_distribution.status == 1 %}
+                    <button class="open-universal-modal btn btn-success btn-sm"
+                            data-modal-url="{% url 'task_management:demand_distribution_update' pk=demand_distribution.id %}"
+                            data-modal-title="test">
+                        Предложить цену
+                    </button>
+                {% else %}
+                    <span class="badge bg-success ">Цена предложена ожидается ответ </span>
+                {% endif %}
+                </div>
+                <!-- Rating and wishlist -->
+            </div>
+
+            <!-- Title -->
+            <!-- <h5 class="card-title"><a href="#">Angular – The Complete Guider</a></h5> -->
+            <p class=" d-lg-block mb-0">{{demand_distribution.demand.comment}} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.</p>
+            <div class="mt-2 d-sm-flex justify-content-between align-items-center">
+                <!-- Rating star -->
+                <h6 class="mb-2 mb-sm-0">
+                    <i class="far fa-fw fa-file-alt ext-primary me-2"></i>
+                    <span class="text-body">
+                        <a href="" class="btn-link"> Прикрепленных документов </a>
+                    </span>
+                </h6>
+                <!-- Buttons -->
+                <div class="text-end text-primary-hover">
+                    <button data-modal-url="{% url 'student_dashboard:demand_distribution_delete' pk=demand_distribution.id  %}" data-modal-title="Удалить задания" class="open-universal-modal btn btn-link text-body p-0 mb-0">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

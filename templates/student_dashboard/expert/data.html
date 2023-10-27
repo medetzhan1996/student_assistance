@@ -1,0 +1,29 @@
+<form class="row g-4" action="" method="POST">
+	{% csrf_token %}
+	<div class="col-md-12">
+	 ТАПСЫРМАНЫҢ ТҮРІ:<br>
+        {{demand_distribution.demand.type_task}}
+	</div>
+	<div class="col-md-12">
+        Тақырып:<br>
+        {{demand_distribution.demand.subject}}
+	</div>
+	<div class="col-md-12">
+        МЕРЗІМІ:<br>
+        {{demand_distribution.demand.deadline}}
+	</div>
+	<div class="col-md-12">
+        САРАПШЫ:<br>
+        {{demand_distribution.expert}}
+	</div>
+	<div class="col-md-12">
+        БАҒАСЫ:<br>
+        {{demand_distribution.price}}
+	</div>
+	<div class="col-md-12">
+		СТУДЕНТТЕРДІҢ ТҮСІНІКТЕМЕСІ<br>
+		{% for comment in demand_distribution.expert.comment_expert.all %}
+			{{ comment.text }} <br>
+		{% endfor %}
+	</div>
+</form>

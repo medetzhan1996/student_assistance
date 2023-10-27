@@ -1,0 +1,16 @@
+<h2>Список обратных звонков</h2>
+<form action="{% url 'manager_dashboard:call_back_list' %}" method="GET">
+	ИМЯ:
+	{{filter.form.first_name}}
+	НОМЕР ТЕЛЕФОНА:
+	{{filter.form.phone_number}}
+    <button type="submit" class="btn btn-primary">искать</button>
+</form>
+<div>
+	{% for callback in filter.qs %}
+	    Номер телефона:
+	    {{callback.phone_number}}<br>
+	    Имя:
+	    {{callback.first_name}}<br><br>
+	{% endfor %}
+</div>

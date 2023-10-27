@@ -1,0 +1,12 @@
+{% load widget_tweaks %}
+
+<form class="row g-4" action="{{ request.path }}" method="POST">
+	{% csrf_token %}
+	<div class="col-md-12">
+		<label class="form-label">Шағымыңызды жазыңыз</label>
+        {{ form.text|add_class:"form-control" }}
+	</div>
+	<div class="d-sm-flex justify-content-end">
+		<button type="submit" class="btn btn-primary mb-0">Шағым жіберу</button>
+	</div>
+</form>

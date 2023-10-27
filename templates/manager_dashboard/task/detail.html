@@ -1,0 +1,27 @@
+{% load crispy_forms_tags %}
+<form class="row g-4" action="" method="POST">
+    {% csrf_token %}
+    <div class="col-md-6">
+        ТИП Дип. Работы:<br>
+        {{demand.get_diplom_type_display}}
+    </div>
+    <div class="col-md-6">
+        Язык:<br>
+        {{demand.get_language_display}}
+    </div>
+    <div class="col-md-6">
+        СТОИМОСТЬ:<br>
+        {{demand_distribution.price}}
+    </div>
+    <div class="col-md-6">
+        Предоплата:<br>
+        {{demand_distribution.prepayment}}
+    </div>
+    <div class="col-md-12">
+        Номер телефона:<br>
+        {{demand_distribution.phone_number}}
+    </div>
+    <div class="col-md-12">
+        <a href="{% url 'manager_dashboard:task_update' pk=demand.id %}">Редактировать</a>
+    </div>
+</form>

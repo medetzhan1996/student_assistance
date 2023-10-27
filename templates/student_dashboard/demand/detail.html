@@ -1,0 +1,45 @@
+{% load chat_tags %}
+{% load task_management_tags %}
+<div class="card border rounded-1 p-2 mt-3">
+	<div class="row">
+		<div class="col-md-3">
+			<img src="{{ demand_distribution.expert.profile.photo.url }}" class="rounded-3" alt="...">
+		</div>
+		<div class="col-md-9">
+			<div class="d-sm-flex justify-content-sm-between align-items-center mb-2 mb-sm-3">
+				<div>
+					<h5 class="card-title mb-0 ">
+						<a data-modal-url="{% url 'student_dashboard:expert_detail' pk=demand_distribution.id %}" class="open-universal-modal" data-modal-title="Толық ақпарат">
+						    {{ demand_distribution.expert }}
+					    </a>
+					</h5>
+					<span class="h6 fw-light">4.3<i class="fas fa-star text-warning ms-1"></i></span>
+				</div>
+				{% if demand_distribution.status == 2 %}
+					<a data-modal-url="{% url 'student_dashboard:expert_choose' pk=demand_distribution.id %}" class="btn btn-success btn-sm mb-0 open-universal-modal" data-modal-title="Орындаушыны таңдау">Орындаушыны таңдау</a>
+				{% elif demand_distribution.status == 3 %}
+					Сарапшы таңдалды
+				{% endif %}
+			</div>
+			<div class="alert alert-secondary d-sm-flex justify-content-sm-between" role="alert">
+				<div>
+					Ұсынылған баға <a href="#" class="alert-link">
+					{{ demand_distribution.price }} тг
+				</a>
+				</div>
+				<div>
+					{% get_merge_url demand.id demand_distribution.id as room %}
+					<a href="{% url 'student_dashboard:message_list' room=room %}">
+						Чатты ашыңыз
+						<span id="notification-chat-{{ demand_distribution.id }}" class="badge text-bg-primary">
+							{% if count_unread_message %}
+								{{ count_unread_message }}
+							{% endif %}
+						</span>
+					</a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

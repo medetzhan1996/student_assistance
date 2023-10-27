@@ -1,0 +1,16 @@
+<form class="row g-4" hx-post="{{ request.path }}">
+    {% csrf_token %}
+    <div class="col-md-12">
+        <label class="form-label">Цена</label>
+        {{ form.price}}
+    </div>
+    <!-- Phone number -->
+    <div class="col-md-12">
+        <label class="form-label">Дополнительное информация </label>
+        {{ form.comment}}
+    </div>
+    <!-- Save button -->
+    <div class="d-sm-flex justify-content-end">
+        <button type="submit" class="btn btn-primary mb-0">Отправить</button>
+    </div>
+</form>

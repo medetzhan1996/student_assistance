@@ -1,0 +1,172 @@
+{% extends 'student_dashboard/base.html' %}
+{% load static %}
+{% load chat_tags %}
+{% load task_management_tags %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md-12" id="demand-detail">
+		{% for demand in demands %}
+		    <div class="card border rounded-1 mb-2">
+				<div class="card-body">
+					<ul class="nav nav-tabs nav-tabs-line" role="tablist">
+						<li class="nav-item" role="presentation">
+							<a class="nav-link active" data-bs-toggle="tab" href="#tab-{{ demand.id }}"
+							   aria-selected="true" role="tab">Сипаттама</a>
+						</li>
+						<li class="nav-item" role="presentation">
+							<a class="nav-link" href="#tab-distribution-{{ demand.id }}"
+							   aria-selected="false" role="tab" data-bs-toggle="tab" tabindex="-1" id="count-expert-{{ demand.id }}">
+								Кеңесшілер
+								{% if demand.get_count_responsive_distributions %}
+									<span  class="badge text-bg-danger" >{{ demand.get_count_responsive_distributions }}</span>
+								{% endif %}
+							</a>
+						</li>
+						<li class="nav-item dropdown nav-item-dropdown-icon">
+							<a class="nav-link show" href="#" id="advanceMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								<i class="fas fa-ellipsis-h"></i>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end min-w-auto" data-bs-popper="static">
+								<li>
+									<a class="dropdown-item open-universal-modal" data-modal-url="{% url 'student_dashboard:demand_update' pk=demand.id %}" target="_blank"
+									data-modal-title="Өңдеу">
+										<i class="text-warning fa-fw bi bi-pencil-square  fa-fw me-2"></i>Өңдеу
+									</a>
+								</li>
+<!--								<li> <hr class="dropdown-divider"></li>-->
+<!--								<li>-->
+<!--									<a class="dropdown-item open-universal-modal" target="_blank" data-modal-url="{% url 'student_dashboard:demand_delete' pk=demand.id %}" data-modal-title="Удалить заказ">-->
+<!--										<i class="text-orange bi bi-trash fa-fw me-2"></i>-->
+<!--										Удалить-->
+<!--									</a>-->
+<!--								</li>-->
+								{% get_selected_demand_distribution query=demand status=4 as selected_demand_distribution %}
+								{% if selected_demand_distribution %}
+									<li> <hr class="dropdown-divider"></li>
+									<li>
+										<a class="dropdown-item open-universal-modal" data-modal-url="{% url 'student_dashboard:comment_create' expert=selected_demand_distribution.expert.id %}" target="_blank"
+										data-modal-title="Пікір қалдыру">
+											<i class="text-warning fa-fw bi bi-pencil-square  fa-fw me-2"></i>Пікір қалдыру
+										</a>
+									</li>
+									<li> <hr class="dropdown-divider"></li>
+									<li>
+										<a class="dropdown-item open-universal-modal" data-modal-url="{% url 'student_dashboard:claim_create' pk=selected_demand_distribution.expert.id %}" target="_blank"
+										data-modal-title="Шағымды қалдырыңыз">
+											<i class="text-warning fa-fw bi bi-pencil-square  fa-fw me-2"></i>Шағымдану
+										</a>
+									</li>
+									<li> <hr class="dropdown-divider"></li>
+									<li>
+										<a class="dropdown-item open-universal-modal" target="_blank" data-modal-url="{% url 'student_dashboard:archive' pk=selected_demand_distribution.demand.id %}"data-modal-title="Тапсырысты мұрағаттау">
+											{%  csrf_token %}
+											Мұрағаттау
+										</a>
+									</li>
+								{% endif %}
+							</ul>
+						</li>
+					</ul>
+					<div class="tab-content p-1">
+						<div class="tab-pane show active mt-3" id="tab-{{ demand.id }}" role="tabpanel">
+							<div class="d-flex justify-content-between">
+								<div>
+									<a href="#" class="badge text-bg-primary">{{demand.subject}}</a>
+									<a href="#" class="badge text-bg-dark">{{demand.type_task}}</a>
+									<span class="badge bg-danger bg-opacity-10 text-danger"><i class="far fa-calendar text-danger me-2"></i>{{demand.deadline}} </span>
+								</div>
+							</div>
+
+							<h5 class="card-title mt-3 mb-0"><a href="#" class="small">{{demand.comment}}</a></h5>
+							<div class="d-flex justify-content-between align-items-center mt-1">
+							<div class="d-flex justify-content-between align-items-center mt-1">
+								<ul class="nav nav-divider small mb-0">
+									{% for demandfile in demand.demandfile_set.all %}
+									    <li class="nav-item">Тіркелген файлдар: </li>
+										<li>
+
+										    <a href="{{ demandfile.file.url }}" download class="a-link me-2 mb-4 mb-sm-0">
+											    {{ demandfile.file }} ,
+										    </a>
+										</li>
+									{% endfor %}
+								</ul>
+							</div>
+
+						</div>
+					</div>
+						<div class="tab-pane" id="tab-distribution-{{ demand.id }}" role="tabpanel">
+							{% for demand_distribution in demand.get_responsive_distributions %}
+								<div class="card border rounded-1 p-2 mt-3">
+									<div class="row">
+										<div class="col-md-3">
+											{% if demand_distribution.expert.profile.photo.url %}
+											<img src="{{ demand_distribution.expert.profile.photo.url }}" class="rounded-3" alt="...">
+											{% else %}
+											<img src="{% static 'assets/images/avatar.png' %}" class="rounded-3" alt="...">
+											{% endif %}
+										</div>
+										<div class="col-md-9">
+											<div class="d-sm-flex justify-content-sm-between align-items-center mb-2 mb-sm-3">
+												<div>
+													<h5 class="card-title mb-0 ">
+														<a data-modal-url="{% url 'student_dashboard:expert_detail' pk=demand_distribution.id %}" class="open-universal-modal" data-modal-title="Толық ақпарат">
+														    {{ demand_distribution.expert }}
+													    </a>
+													</h5>
+													<span class="h6 fw-light">4.3<i class="fas fa-star text-warning ms-1"></i></span>
+												</div>
+												{% if demand_distribution.status == 2 %}
+												{% if demand_distribution.demand.is_expert_selected == False %}
+													<a data-modal-url="{% url 'student_dashboard:expert_choose' pk=demand_distribution.id %}" class="btn btn-success btn-sm mb-0 open-universal-modal" data-modal-title="Орындаушыны таңдау">Орындаушыны таңдау</a>
+												{% else %}
+													<a data-modal-url="{% url 'student_dashboard:expert_choose' pk=demand_distribution.id %}" class="btn btn-success btn-sm mb-0 disabled open-universal-modal" data-modal-title="Орындаушыны таңдау">Орындаушыны таңдау</a>
+												{% endif %}
+												{% elif demand_distribution.status == 3 %}
+													Сарапшы таңдалды, төлем күтілуде
+												{% elif demand_distribution.status == 4 %}
+													Сарапшы жұмысқа кірісті
+												{% endif %}
+											</div>
+											<div class="alert alert-secondary d-sm-flex justify-content-sm-between" role="alert">
+												<div>
+													Ұсынылған баға <a href="#" class="alert-link">
+													{{ demand_distribution.price }} тг
+												</a>
+												</div>
+												<div>
+													{% get_merge_url demand.id demand_distribution.id as room %}
+													<a href="{% url 'student_dashboard:message_list' room=room %}">
+														Чатты ашу
+														<span id="notification-chat-{{ demand_distribution.id }}" class="badge text-bg-primary">
+															{% get_count_unread_message request.user demand_distribution.id as count_unread_message %}
+																{{ count_unread_message }}
+														</span>
+													</a>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							{% empty %}
+								<div class="p-4 text-center" id="expert-not-exist">
+									<img src="{% static 'assets/main/expectation.png' %}" width="35" class="mb-2">
+									<h6>Кеңесшілер сіздің тапсырмаңызды көреді және жақын арада өз бағаларын ұсына бастайды.</h6>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+		    </div>
+
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
+
+{% block domready %}
+
+{% endblock %}

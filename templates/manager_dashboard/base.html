@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	{% load i18n %}
+	<title>Student</title>
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Eduport- LMS, Education and Course Theme">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap">
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/all.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/tiny-slider/tiny-slider.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/glightbox/css/glightbox.css' %}">
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/selectize.bootstrap4.css' %}">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+</head>
+
+<body>
+<header class="navbar-light navbar-sticky">
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-xl navbar-h-60">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand navbar-brand-exspert" href="{% url 'main:MainView' %}">
+				<img class="light-mode-item navbar-brand-item" src="{% static 'assets/images/iStudent.png' %}" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="{% static 'assets/images/logo-light.svg' %}" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Responsive navbar toggler -->
+			<button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+				<i class="fas fa-sliders-h"></i>
+			</button>
+			<!-- Right header content START -->
+			<!-- Add to cart -->
+			<div class="ms-xl-auto">
+				<div class="ms-xl-auto">
+					<ul class="navbar-nav flex-row align-items-center">
+						<li class="nav-item ms-2 ms-md-3 Language dropdown">
+							<a class="nav-link dropdown-toggle" href="index-2.html#" id="dropdownLanguage" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe me-2"></i>Язык</a>
+							<div class="dropdown-menu mt-2 min-w-auto shadow" aria-labelledby="dropdownLanguage" style="">
+								<a class="dropdown-item me-4" href="index-2.html#"><img class="fa-fw me-2" src="assets/images/flags/uk.svg" alt="">English</a>
+								<a class="dropdown-item me-4" href="index-2.html#"><img class="fa-fw me-2" src="assets/images/flags/sp.svg" alt="">Español</a>
+								<a class="dropdown-item me-4" href="index-2.html#"><img class="fa-fw me-2" src="assets/images/flags/fr.svg" alt="">Français</a>
+								<a class="dropdown-item me-4" href="index-2.html#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg" alt="">Deutsch</a>
+							</div>
+						</li>
+						<!-- Notification dropdown START -->
+						<li class="nav-item ms-2 ms-md-3 dropdown">
+							<!-- Notification button -->
+							<a class="btn btn-light btn-round mb-0" href="#" role="button"
+							   data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+								<i class="bi bi-bell fa-fw"></i>
+							</a>
+							<!-- Notification dote -->
+							<span class="notif-badge animation-blink {% if not actions %} d-none {% endif %}"></span>
+
+							<!-- Notification dropdown menu START -->
+							<div class="dropdown-menu dropdown-animation dropdown-menu-end dropdown-menu-size-md p-0 shadow-lg border-0">
+								<div class="card bg-transparent">
+									<div class="card-header bg-transparent border-bottom py-4 d-flex justify-content-between align-items-center">
+										<h6 class="m-0">
+											Уведомления
+											<span class="badge bg-danger bg-opacity-10 text-danger ms-2
+												{% if not actions %} d-none {% endif %}">
+												{{ actions.count }} новый
+											</span>
+										</h6>
+										<a class="small {% if not actions %} d-none {% endif %}" href="#">Очистить все</a>
+									</div>
+									<div class="card-body p-0">
+										<ul class="list-group list-unstyled list-group-flush">
+											<!-- Notif item -->
+											{% for action in actions %}
+												<li>
+													<a href="#" class="list-group-item-action border-0 border-bottom d-flex p-3">
+														<div>
+															<p class="text-body small m-0">
+																{{ action.verb }}
+
+
+															</p>
+															{% if action.target_ct.name == 'demand distribution' %}
+																<u class="small">Открыть</u>
+															{% endif %}
+														</div>
+													</a>
+												</li>
+											{% empty %}
+												<li>
+													<a href="#" class="list-group-item-action border-0 border-bottom d-flex p-3">
+														<div>
+															<p class="text-body small m-0">Нет уведомления</p>
+														</div>
+													</a>
+												</li>
+											{% endfor %}
+										</ul>
+									</div>
+									<!-- Button -->
+<!--									<div class="card-footer bg-transparent border-0 py-3 text-center position-relative">-->
+<!--										<a href="#" class="stretched-link">See all incoming activity</a>-->
+<!--									</div>-->
+								</div>
+							</div>
+							<!-- Notification dropdown menu END -->
+						</li>
+						<!-- Notification dropdown END -->
+
+						<!-- Profile dropdown START -->
+						<li class="nav-item ms-2 ms-md-3 dropdown">
+							<!-- Avatar -->
+							<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+								<img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/01.jpg' %}" alt="avatar">
+							</a>
+
+							<!-- Profile dropdown START -->
+							<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+								<!-- Profile info -->
+								<li class="px-3">
+									<div class="d-flex align-items-center">
+										<!-- Avatar -->
+										<div class="avatar me-3 mb-3">
+											<img class="avatar-img rounded-circle shadow" src="{% static 'assets/images/avatar/01.jpg' %}" alt="avatar">
+										</div>
+										<div>
+											<a class="h6 mt-2 mt-sm-0" href="#">{{ request.user.username }}</a>
+											<p class="small m-0">{{ request.user.email }}</p>
+										</div>
+									</div>
+								</li>
+                				<li> <hr class="dropdown-divider"></li>
+								<!-- Links -->
+								<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
+								<li><a class="dropdown-item bg-danger-soft-hover" href="{% url 'logout' %}"><i class="bi bi-power fa-fw me-2"></i>Выход</a></li>
+								<li> <hr class="dropdown-divider"></li>
+							</ul>
+							<!-- Profile dropdown END -->
+						</li>
+						<!-- Profile dropdown END -->
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
+<div id="sticky-space" style="height: 0px;" class=""></div>
+<div class="main-ddd">
+<section class="pt-4">
+	<div class="container">
+		<div class="row">
+
+			<!-- Left sidebar START -->
+			<div class="col-xl-3">
+				<!-- Responsive offcanvas body START -->
+				<div class="offcanvas-xl offcanvas-end" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+					<!-- Offcanvas header -->
+					<div class="offcanvas-header bg-light">
+						<h5 class="offcanvas-title" id="offcanvasNavbarLabel">My profile</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasSidebar" aria-label="Close"></button>
+					</div>
+					<!-- Offcanvas body -->
+					<div class="offcanvas-body p-3 p-xl-0">
+						<div class="border list-group-item-white rounded-1 pb-0 p-3 w-100">
+							<!-- Dashboard menu -->
+							<div class="list-group list-group list-group-borderless">
+								{% with request.resolver_match.app_names.0|add:':'|add:request.resolver_match.url_name as url_name %}
+									<!-- <a class="list-group-item {% if url_name == 'student_dashboard:student_profile' %}active{% endif %}"
+									   href="{% url 'student_dashboard:student_profile' %}">
+										<i class="bi bi-ui-checks-grid fa-fw me-2"></i>
+										Профиль
+									</a> -->
+									<a class="list-group-item "
+									   href="{% url 'manager_dashboard:task_list' %}">
+										<i class="bi bi-pencil-square  fa-fw me-2"></i>
+										Список задании
+									</a>
+									<a class="list-group-item "
+									   href="{% url 'manager_dashboard:task_create' %}">
+										<i class="bi bi-pencil-square  fa-fw me-2"></i>
+										Добавить задание
+									</a>
+									<a class="list-group-item "
+									   href="{% url 'manager_dashboard:register_student_create' %}">
+										<i class="bi bi-pencil-square  fa-fw me-2"></i>
+										Добавить студент
+									</a>
+
+									
+<!--									<a class="list-group-item {% if url_name == 'student_dashboard:my_balance_list' %}active{% endif %}"-->
+<!--									   href="{% url 'student_dashboard:my_balance_list' %}">-->
+<!--										<i class="bi bi-wallet2 fa-fw me-2"></i>-->
+<!--										Баланс-->
+<!--									</a>-->
+<!--									<a class="list-group-item"-->
+<!--									   href="{% url 'student_dashboard:notification_list' %}">-->
+<!--										<i class="bi bi-chat fa-fw me-2"></i>-->
+<!--										Уведомление-->
+<!--									</a>-->
+<!--									<a class="list-group-item" href="{% url 'student_dashboard:finished_task_list' %}">-->
+<!--										<i class="fa-solid fa-file"></i>-->
+<!--										Готовыe задание-->
+<!--									</a>-->
+									<a class="list-group-item text-danger bg-danger-soft-hover" href="{% url 'logout' %}">
+										<i class="fas fa-sign-out-alt fa-fw me-2"></i>
+										Выход
+									</a>
+								{% endwith %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Responsive offcanvas body END -->
+			</div>
+			<!-- Left sidebar END -->
+
+			<!-- Main content START -->
+			<div class="col-xl-8 col-md-8">
+				{% block content %}{% endblock %}
+				{% block modal %}{% endblock %}
+				{% include 'widget/modal.html' %}
+			</div>
+			<!-- Main content END -->
+		</div><!-- Row END -->
+	</div>
+</section>
+</div>
+</body>
+
+<!-- Back to top -->
+<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
+<!-- Bootstrap JS -->
+<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Vendors -->
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.js' %}"></script>
+<script src="{% static 'assets/vendor/purecounterjs/dist/purecounter_vanilla.js' %}"></script>
+<!-- Template Functions -->
+<script src="{% static 'assets/js/functions.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
+<script src="https://unpkg.com/htmx.org@1.6.0"></script>
+<script src="{% static 'assets/js/js.cookie.min.js' %}"></script>
+<script src="{% static 'assets/js/ajax_custom.js' %}"></script>
+<script src="{% static 'assets/js/chat.js' %}"></script>
+<script src="{% static 'assets/js/form_set.js' %}"></script>
+<script src="{% static 'assets/js/selectize.js' %}"></script>
+<script type="text/javascript">
+	var csrftoken = Cookies.get('csrftoken');
+	function csrfSafeMethod(method) {
+		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+	}
+	$.ajaxSetup({
+		beforeSend: function(xhr, settings) {
+			if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+				xhr.setRequestHeader("X-CSRFToken", csrftoken);
+			}
+		}
+	});
+
+	$(document).ready(function() {
+		{% block domready %}{% endblock %}
+	})
+</script>
+</html>

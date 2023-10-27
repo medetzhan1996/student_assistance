@@ -1,0 +1,45 @@
+{% load crispy_forms_tags %}
+<div class="row">
+	<form action="{{ request.path }}" method="POST" id="form-universal-modal" enctype="multipart/form-data">
+		{% csrf_token %}
+		<div id="form-universal-modal-content">
+			<div class="row">
+				<div class="formset">
+					<div class="formset-forms">
+						<div class="col-md-12 mb-1">
+							<p class="form-label requiredField">
+								Файли(при наличии)<span class="asteriskField">*</span>
+							</p>
+							<a class="btn btn-default border w-100 add-demand_file-formset float-right">+ Добавить файл</a>
+						</div>
+						{{ demand_completed_file_form_set }}
+						{% for formset_form in demand_completed_file_form_set %}
+						<div class="form-group formset-form d-flex">
+							{% for hidden in formset_form.hidden_fields %}
+							{{ hidden }}
+							{% endfor %}
+							<input type="file" class="form-control" height="41"  name="files-{{ forloop.counter0 }}-file" id="id_files-{{ forloop.counter0 }}-file"/>
+							<button class="delete btn btn-sm btn-default">
+								<i class="fa fa-trash "></i>
+							</button>
+							<div class="d-none">{{ formset_form.DELETE }}</div>
+						</div>
+						{% endfor %}
+
+						<div class="form-group empty-form d-none">
+							<div class="service-content">
+								<div class="d-flex">
+									<input type="file" class="form-control"  height="41" name="files-__prefix__-file" id="files-__prefix__-file">
+									{{demand_completed_file_form_set.empty_form.DELETE}}
+									<div class="input-group-append  delete-content" data-id="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<input class="btn btn-primary w-100 mt-2" type="submit" value="Отправить">
+	</form>
+</div>

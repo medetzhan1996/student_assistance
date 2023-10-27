@@ -1,0 +1,22 @@
+{% extends 'expert_dashboard/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+	<div class="card border rounded-1">
+		<!-- Card body START -->
+		<div class="card-body" >
+			<h6 class="mb-4">ДОБАВИТЬ</h6>
+			<hr>
+			<div id= "resume-content">
+				<form action="{{ request.path }}" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					{% load crispy_forms_tags %}
+					{{ form|crispy }}
+				
+					<input type="submit" id="btn-resume" value="button" name="">
+				</form>
+			</div>
+		</div>
+		<!-- Card body START -->
+	</div>
+{% endblock %}

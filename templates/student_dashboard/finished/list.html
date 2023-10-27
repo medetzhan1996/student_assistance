@@ -1,0 +1,11 @@
+{% extends 'student_dashboard/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% for demand_distribution in  demand_distributions %}
+    {{ demand_distribution.demand.subject }}<br>
+    {{ demand_distribution.demand.type_task }}<br>
+    {{ demand_distribution.demand.deadline }}<br>
+    {{ demand_distribution.demand.comment }}<br><br><br>
+    {% endfor %}
+{% endblock %}

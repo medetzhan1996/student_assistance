@@ -1,0 +1,14 @@
+{% load crispy_forms_tags %}
+<div class="row">
+	<div class="d-none">
+		{{ form.status|as_crispy_field }}
+	</div>
+	<div class="col-md-12">
+		{{ form.price|as_crispy_field }}
+	</div>
+	<div class="col-md-12">
+		{{ form.comment|as_crispy_field }}
+	</div>
+	
+</div>
+

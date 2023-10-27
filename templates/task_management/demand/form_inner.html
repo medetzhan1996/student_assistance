@@ -1,0 +1,47 @@
+{% load crispy_forms_tags %}
+{% load task_management_tags %}
+<div class="col-md-12">
+	{{ form.comment|as_crispy_field }}
+</div>
+<div class="col-md-6">
+	{{ form.deadline|as_crispy_field }}
+</div>
+
+
+<div class="formset">
+	<div class="file-content formset-forms d-none">
+		<div class="col-md-12 mb-1">
+		    <p class="form-label requiredField">
+		    	Файли(при наличии)<span class="asteriskField">*</span>
+		    </p>
+			<a class="btn btn-default border w-100 add-demand_file-formset">+ Добавить файл</a>
+		</div>
+		{{ demand_file_form_set }}
+		{% for formset_form in demand_file_form_set %}
+			<div class="form-group formset-form d-flex">
+			  {% for hidden in formset_form.hidden_fields %}
+				{{ hidden }}
+			  {% endfor %}
+			  <input type="file" class="form-control" height="41"  name="files-{{ forloop.counter0 }}-file" id="id_files-{{ forloop.counter0 }}-file"/>
+			  <button class="delete btn btn-sm btn-default">
+			  	<i class="fa fa-trash "></i>
+			  </button>
+			  <div class="d-none">{{ formset_form.DELETE }}</div>
+			</div>
+		{% endfor %}
+
+		<div class="form-group empty-form d-none">
+		  <div class="service-content">
+			<div class="d-flex">
+			  <input type="file" class="form-control"  height="41" name="files-__prefix__-file" id="files-__prefix__-file">
+			  {{demand_file_form_set.empty_form.DELETE}}
+			  <input type="hidden" name="type_task" value="1">
+			  <input type="hidden" name="subject" value="1">
+			  <div class="input-group-append  delete-content" data-id="">
+			  </div>
+			</div>
+		  </div>
+		</div>
+	</div>
+</div>
+

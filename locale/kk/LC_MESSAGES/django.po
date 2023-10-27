@@ -1,0 +1,483 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-26 18:02+0600\n"
+"PO-Revision-Date: 2023-10-26 14:38+0000\n"
+"Last-Translator:   <medet@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: .\accounts\models.py:20
+msgid "email address"
+msgstr "email address"
+
+#: .\templates\accounts\student_signup.html:112
+#, fuzzy
+#| msgid "Что даёт студентам сайт "
+msgid "Что даёт студентам сайт"
+msgstr "Сайт студенттерге не береді"
+
+#: .\templates\accounts\student_signup.html:122
+#: .\templates\main\index.html:1145
+msgid "Быстрый поиск помощника"
+msgstr "Көмекшіні жылдам іздеу"
+
+#: .\templates\accounts\student_signup.html:123
+#: .\templates\main\index.html:1146
+msgid "За 59 секунд система разошлёт задание экспертам, а они предложат цены."
+msgstr ""
+"59 секундта жүйе сарапшыларға тапсырма жібереді және олар баға ұсынады."
+
+#: .\templates\accounts\student_signup.html:132
+#: .\templates\main\index.html:1155
+msgid "Общение с экспертом напрямую"
+msgstr "Сарапшымен тікелей байланыс"
+
+#: .\templates\accounts\student_signup.html:133
+#: .\templates\main\index.html:1156
+msgid ""
+"Эксперты предлагают цены, а вы выбираете подходящего (по рейтингу, отзывам, "
+"стоимости)."
+msgstr ""
+"Сарапшылар бағаны ұсынады, ал сіз дұрысын таңдайсыз (рейтинг, шолулар, "
+"шығындар бойынша)."
+
+#: .\templates\accounts\student_signup.html:142
+#: .\templates\main\index.html:1165
+msgid "Цены в 2-3 раза ниже, чем у посредников"
+msgstr "Бағалар делдалдарға қарағанда 2-3 есе төмен"
+
+#: .\templates\accounts\student_signup.html:143
+#: .\templates\main\index.html:1166
+msgid "Общаясь с экспертом напрямую, экономите не только время, но и деньги."
+msgstr ""
+"Сарапшымен Тікелей сөйлесу арқылы уақытты ғана емес, ақшаны да үнемдеңіз."
+
+#: .\templates\accounts\student_signup.html:152
+#, fuzzy
+#| msgid "Стать экспертом"
+msgid "Строгий отбор экспертов"
+msgstr "Сарапшы болыңыз"
+
+#: .\templates\accounts\student_signup.html:153
+msgid ""
+"Наши эксперты прошли проверку временем, сложностью и количеством заданий."
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:172
+msgid "Зарегистрируйтесь сейчас"
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:174
+msgid "После регистрации вы получите доступ к сайту"
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:180
+msgid "Зарегистрировать"
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:184
+msgid "У вас уже есть аккаунт?"
+msgstr ""
+
+#: .\templates\accounts\student_signup.html:184
+msgid "Войти здесь"
+msgstr ""
+
+#: .\templates\main\index.html:78 .\templates\main\index.html:165
+msgid "Обратный звонок"
+msgstr "Кері қоңырау"
+
+#: .\templates\main\index.html:131 .\templates\main\index.html:134
+msgid "Вход"
+msgstr ""
+
+#: .\templates\main\index.html:168
+msgid "Главная страница"
+msgstr "Басты бет"
+
+#: .\templates\main\index.html:171
+msgid "Наши услуги"
+msgstr "Біздің қызметтер"
+
+#: .\templates\main\index.html:174
+msgid "Отзывы"
+msgstr "Пікірлер"
+
+#: .\templates\main\index.html:177 .\templates\main\index.html:1112
+msgid "О проекте"
+msgstr "Жоба туралы"
+
+#: .\templates\main\index.html:180
+msgid "ЯЗЫК"
+msgstr "Тіл"
+
+#: .\templates\main\index.html:343
+msgid "онлайн-сервис помощи студентам"
+msgstr "студенттерге онлайн көмек көрсету сайты"
+
+#: .\templates\main\index.html:347
+msgid "Здесь эксперты помогают и консультируют по учёбе без посредников"
+msgstr "Мұнда сарапшылар делдалсыз оқуға көмектеседі және кеңес береді"
+
+#: .\templates\main\index.html:359
+msgid "Перейти в личный кабинет студента "
+msgstr "Студенттің жеке кабинетіне өтіңіз"
+
+#: .\templates\main\index.html:364
+msgid "Перейти в личный кабинет эксперта"
+msgstr "Сарапшының жеке кабинетіне өтіңіз"
+
+#: .\templates\main\index.html:371 .\templates\main\index.html:1264
+msgid "Разместить задание"
+msgstr "Тапсырма бағасын білу"
+
+#: .\templates\main\index.html:374 .\templates\main\index.html:1282
+msgid "Стать экспертом"
+msgstr "Сарапшы болыңыз"
+
+#: .\templates\main\index.html:418
+msgid "Эксперт"
+msgstr "Сарапшылар"
+
+#: .\templates\main\index.html:431
+msgid " Cтудента"
+msgstr "Студентер"
+
+#: .\templates\main\index.html:444
+msgid " Заданий и консультаций"
+msgstr "Тапсырмалар мен кеңестер"
+
+#: .\templates\main\index.html:465
+msgid "Разместите задание, а мы подберём эксперта"
+msgstr "Тапсырманы жіберіңіз, біз сарапшы таңдаймыз"
+
+#: .\templates\main\index.html:466
+msgid ""
+"Сайт бесплатно разошлёт задание экспертам.А эксперты предложат цены. Это "
+"удобнее, чем искать кого-то в Интернете"
+msgstr ""
+"Сайт сарапшыларға тапсырманы тегін жібереді.Ал сарапшылар баға ұсынады. Бұл "
+"интернеттен біреуді іздеуден гөрі ыңғайлы"
+
+#: .\templates\main\index.html:476
+#, fuzzy
+#| msgid "Тысячи отзывов о нашей работе"
+msgid "Сотни отзывов о нашей работе"
+msgstr "Біздің жұмысымыз туралы мыңдаған пікірлер"
+
+#: .\templates\main\index.html:484
+#, fuzzy
+#| msgid "553 969 оценок среднее 4,9 из 5"
+msgid "500 оценок среднее 4,9 из 5"
+msgstr "553 969 бағалау орташа 5-тен 4,9"
+
+#: .\templates\main\index.html:495
+#, fuzzy
+#| msgid "Отклик экспертов с первых мину"
+msgid "Отклик экспертов с первых минут"
+msgstr "Алғашқы минуттардан бастап сарапшылардың жауабы"
+
+#: .\templates\main\index.html:497
+#, fuzzy
+#| msgid ""
+#| "С нами работают более 15 000 проверенных экспертов с высшим образованием. "
+#| "Вы можете выбрать исполнителя уже через 15 минут после публикации заказа. "
+#| "Срок исполнения — от 1 часа"
+msgid ""
+"С нами работают более 100 проверенных экспертов с высшим образованием. Вы "
+"можете выбрать исполнителя уже через 15 минут после публикации заказа. Срок "
+"исполнения — от 1 часа"
+msgstr ""
+"Бізбен бірге жоғары білімі бар 15000-нан астам тексерілген сарапшылар жұмыс "
+"істейді. Тапсырыс жарияланғаннан кейін 15 минуттан кейін Орындаушыны "
+"таңдауға болады. Орындау мерзімі - 1 сағаттан бастап"
+
+#: .\templates\main\index.html:508
+msgid "Цены ниже в 2-3 раза"
+msgstr "Бағалар 2-3 есе төмен"
+
+#: .\templates\main\index.html:510
+msgid "Вы работаете с экспертами напрямую, поэтому цены ниже, чем в агентствах"
+msgstr ""
+"Сіз сарапшылармен тікелей жұмыс жасайсыз, сондықтан бағалар агенттіктерге "
+"қарағанда төмен"
+
+#: .\templates\main\index.html:521
+msgid "Доработки и консультации– бесплатны"
+msgstr "Пысықтау және кеңес беру– тегін"
+
+#: .\templates\main\index.html:523
+msgid ""
+"Доработки и консультации в рамках задания бесплатны и выполняются в "
+"максимально короткие сроки"
+msgstr ""
+"Тапсырма шеңберіндегі пысықтаулар мен консультациялар тегін және "
+"мүмкіндігінше қысқа мерзімде орындалады"
+
+#: .\templates\main\index.html:534 .\templates\main\index.html:990
+msgid "Гарантия возврата денег"
+msgstr "Ақшаны қайтару кепілдігі"
+
+#: .\templates\main\index.html:536
+#, python-format
+msgid "Если эксперт не справится — мы вернем 100%% стоимости"
+msgstr "Егер сарапшы сәтсіздікке ұшыраса, біз құнның 100% қайтарамыз"
+
+#: .\templates\main\index.html:618
+msgid "Цены ниже – качество выше!"
+msgstr "Бағалар төмен-сапасы жоғары!"
+
+#: .\templates\main\index.html:619
+#, fuzzy
+#| msgid "Здесь эксперты помогают и консультируют по учёбе без посредников"
+msgid "Работайте с проверенными экспертами без посредников"
+msgstr "Мұнда олар делдалсыз оқуды қабылдап, кеңес береді"
+
+#: .\templates\main\index.html:636
+msgid "Курсовая работа"
+msgstr "Курстық жұмыс"
+
+#: .\templates\main\index.html:637 .\templates\main\index.html:656
+#: .\templates\main\index.html:675 .\templates\main\index.html:694
+#: .\templates\main\index.html:732
+msgid "Цена — от "
+msgstr "Бағасы-бастап"
+
+#: .\templates\main\index.html:655
+msgid "Дипломная работа"
+msgstr "Дипломдық жұмыс"
+
+#: .\templates\main\index.html:674
+msgid "Реферат"
+msgstr "Реферат"
+
+#: .\templates\main\index.html:693
+msgid "Контрольная работа "
+msgstr "Бақылау жұмысы"
+
+#: .\templates\main\index.html:712
+msgid "Домашнее задание "
+msgstr "Үй тапсырмасы"
+
+#: .\templates\main\index.html:713
+msgid "Цена — от  "
+msgstr "Бағасы-бастап"
+
+#: .\templates\main\index.html:731
+msgid "Отчет по практике"
+msgstr "Тәжірибе туралы есеп"
+
+#: .\templates\main\index.html:750
+msgid "Статья"
+msgstr "Мақала"
+
+#: .\templates\main\index.html:751
+msgid "Цена — от"
+msgstr "Бағасы-бастап"
+
+#: .\templates\main\index.html:817
+msgid "Как мы помагаем"
+msgstr "Біз қалай көмектесеміз"
+
+#: .\templates\main\index.html:861
+msgid "Разместите заказ и получите предложения с ценами экспертов."
+msgstr "Тапсырыс беріңіз және сарапшылардың бағаларымен ұсыныстар алыңыз."
+
+#: .\templates\main\index.html:900
+msgid "Выберите эксперта по цене и отзывам"
+msgstr "Баға мен шолулар бойынша сарапшыны таңдаңыз"
+
+#: .\templates\main\index.html:933
+msgid ""
+"Получите положительную оценку, оплатите работу и оставьте отзыв эксперту "
+msgstr "Оң баға алыңыз, жұмысқа ақы төлеңіз және сарапшыға пікір қалдырыңыз"
+
+#: .\templates\main\index.html:953
+msgid "Наши гарантии"
+msgstr "Біздің кепілдіктер"
+
+#: .\templates\main\index.html:954
+msgid "Эксперт получил деньги за заказ, а работу не выполнил?Только не у нас!."
+msgstr ""
+"Сарапшы тапсырыс үшін ақша алды және жұмысты орындамады ма?Тек бізде емес!."
+
+#: .\templates\main\index.html:964
+msgid "Гарантия качества"
+msgstr "Сапа кепілдігі"
+
+#: .\templates\main\index.html:965
+#, python-format
+msgid "Мы гарантируем получение 100%% качественного результата"
+msgstr "Біз 100% сапалы нәтижеге кепілдік береміз"
+
+#: .\templates\main\index.html:977
+msgid "Низкие цены"
+msgstr "Төмен бағалар"
+
+#: .\templates\main\index.html:978
+msgid "Находите профессиональных консультантов, соответствующих вашему бюджету"
+msgstr "Сіздің бюджетіңізге сәйкес келетін кәсіби кеңесшілерді табыңыз"
+
+#: .\templates\main\index.html:991
+msgid ""
+"В случае, если что-то пойдет не так, мы гарантируем возврат полной "
+"уплаченной суммы"
+msgstr ""
+"Егер бірдеңе дұрыс болмаса, біз толық төленген соманы қайтаруға кепілдік "
+"береміз"
+
+#: .\templates\main\index.html:1002
+msgid "Проверенные консультанты"
+msgstr "Тексерілген кеңесшілер"
+
+#: .\templates\main\index.html:1003
+msgid ""
+"У нас работают только настоящие профессионалы, прошедшие проверку и "
+"тестирование"
+msgstr ""
+"Бізде тек тексеруден және тестілеуден өткен нағыз мамандар жұмыс істейді"
+
+#: .\templates\main\index.html:1014
+msgid "Доработки и консультации"
+msgstr "Пысықтау және кеңес беру"
+
+#: .\templates\main\index.html:1015
+msgid ""
+"Доработки и консультации бесплатны, и предоставляются в максимально короткие "
+"сроки"
+msgstr ""
+"Пысықтаулар мен консультациялар тегін және мүмкіндігінше қысқа мерзімде "
+"беріледі"
+
+#: .\templates\main\index.html:1031
+msgid "Отзывы наших клиентов"
+msgstr "Біздің клиенттердің пікірлері"
+
+#: .\templates\main\index.html:1093
+#, fuzzy
+#| msgid "О портале Эдупорт"
+msgid "О портале"
+msgstr "Портал туралы"
+
+#: .\templates\main\index.html:1104
+#, fuzzy
+#| msgid ""
+#| "«Эдупорт» – это безопасный онлайн-сервис помощи студентам. Здесь "
+#| "заказчики напрямую обращаются за помощью к экспертам, а сайт "
+#| "предоставляет гарантию на оказанные услуги."
+msgid ""
+" – это безопасный онлайн-сервис помощи студентам. Здесь заказчики напрямую "
+"обращаются за помощью к экспертам, а сайт предоставляет гарантию на "
+"оказанные услуги."
+msgstr ""
+"- бұл студенттерге қауіпсіз онлайн көмек көрсету қызметі. Мұнда тапсырыс "
+"берушілер сарапшылардың көмегіне тікелей жүгінеді, ал сайт көрсетілген "
+"қызметтерге кепілдік береді."
+
+#: .\templates\main\index.html:1116 .\templates\main\index.html:1195
+msgid "Безопасная сделка"
+msgstr "Қауіпсіз мәміле"
+
+#: .\templates\main\index.html:1120 .\templates\main\index.html:1216
+msgid "Контакты"
+msgstr "Байланыс"
+
+#: .\templates\main\index.html:1137
+msgid "Что даёт студентам сайт "
+msgstr "Сайт студенттерге не береді"
+
+#: .\templates\main\index.html:1175
+msgid "Гарантия возврата"
+msgstr "Қайтару кепілдігі"
+
+#: .\templates\main\index.html:1176
+#, python-format
+msgid "Если эксперт не справится - вернём 100%% суммы."
+msgstr "Егер сарапшы жеңе алмаса, біз соманың 100% қайтарамыз."
+
+#: .\templates\main\index.html:1196
+msgid ""
+"это современный автоматизированный сервис. Он устроен так, что гарантирует "
+"полную безопасность сделок по заказам."
+msgstr ""
+
+#: .\templates\main\index.html:1197
+msgid "Схема работы сервиса:"
+msgstr ""
+
+#: .\templates\main\index.html:1199
+#, fuzzy
+#| msgid "Разместите заказ и получите предложения с ценами экспертов."
+msgid "1) Заказчик размещает заказ. Система оповещает экспертов."
+msgstr "Тапсырыс беріңіз және сарапшылардың бағаларымен ұсыныстар алыңыз."
+
+#: .\templates\main\index.html:1200
+#, fuzzy
+#| msgid ""
+#| "Эксперты предлагают цены, а вы выбираете подходящего (по рейтингу, "
+#| "отзывам, стоимости)."
+msgid ""
+"2) Эксперты предлагают цены за услуги для студентов.Заказчик может выбрать "
+"любого эксперта."
+msgstr ""
+"Сарапшылар бағаны ұсынады, ал сіз дұрысын таңдайсыз (рейтинг, шолулар, "
+"шығындар бойынша)."
+
+#: .\templates\main\index.html:1201
+msgid ""
+"3) После того, как заказчик определится с выбором эксперта, он вносит "
+"предоплату."
+msgstr ""
+
+#: .\templates\main\index.html:1217
+msgid ""
+"Если вам необходима помощь или консультация по работе «IStudent», или вы "
+"хотите поделиться своими идеями, замечаниями, то смело пишите нам мы на "
+"связи 7 дней в неделю!"
+msgstr ""
+
+#: .\templates\main\index.html:1233
+msgid "Email"
+msgstr ""
+
+#: .\templates\main\index.html:1262
+msgid "Для заказчиков"
+msgstr ""
+
+#: .\templates\main\index.html:1263
+msgid ""
+"Теперь вы знаете про «IStudent!».Выбор за вами. Разместите задание и "
+"проверьте, как всё работает.Это быстро и бесплатно."
+msgstr ""
+
+#: .\templates\main\index.html:1280
+#, fuzzy
+#| msgid "Стать экспертом"
+msgid "Для экспертов"
+msgstr "Сарапшы болыңыз"
+
+#: .\templates\main\index.html:1281
+#, python-format
+msgid ""
+"Вы предлагаете цены, а мы выплачиваем 100%% вашего заработка.Никаких "
+"посредников. Оказывайте помощь студентам и зарабатывайте!"
+msgstr ""
+
+#~ msgid "Домашнее задание"
+#~ msgstr "Үй тапсырмасы"
+
+#~ msgid "Language"
+#~ msgstr "Тіл"

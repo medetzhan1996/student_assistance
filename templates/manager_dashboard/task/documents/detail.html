@@ -1,0 +1,18 @@
+{% extends 'manager_dashboard/base.html' %}
+{% load task_management_tags %}
+{% load static %}
+
+{% block content %}
+Студент: {{demand.student.email}}<br>
+Тип Дип. Работы: {{demand.get_diplom_type_display}}<br>
+Коментарии: {{demand.comment}}<br>
+Прикрипленные документы:<br>
+{% for file in demand.demandfile_set.all %}
+<a href="{{file.file}}" download>{{file.file}}</a><br>
+{% endfor %}<br>
+Готовый проект:<br><br>
+{% for file in demand.demandcompletedfile_set.all %}
+<a href="{{file.file}}" download>{{file.file}}</a><br>
+{% endfor %}
+
+{% endblock %}
